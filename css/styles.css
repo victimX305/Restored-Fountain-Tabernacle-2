@@ -449,7 +449,17 @@ section[id] {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  align-items: center;
   animation: fadeInUp 1s ease-out 0.6s both;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-actions .btn,
+.hero-actions .btn--primary,
+.hero-actions .btn--secondary {
+  flex-shrink: 0;
+  min-width: 0;
 }
 
 .hero-actions .btn + .btn {
@@ -1506,11 +1516,16 @@ section[id] {
   .hero-actions {
     flex-direction: column;
     gap: 0.75rem;
+    align-items: stretch;
+    width: 100%;
   }
 
   .hero-actions .btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
+    min-width: 0;
+    text-align: center;
+    justify-content: center;
   }
 
   .event-banner__content .btn {
@@ -1643,7 +1658,6 @@ section[id] {
   .hero-actions .btn {
     padding: 0.875rem 1.25rem;
     font-size: 0.875rem;
-    max-width: 100%;
   }
 
   .btn {
