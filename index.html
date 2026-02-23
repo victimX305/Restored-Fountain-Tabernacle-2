@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Restored Fountain Tabernacle | A Place of Restoration</title>
+  <meta name="description" content="Restored Fountain Tabernacle - A place of restoration and the living waters. Join our family and encounter God.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <!-- Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner container">
+      <a href="index.html" class="site-header__brand">
+        <img src="assets/logo.png" alt="" class="site-header__logo" width="110" height="110">
+        <span class="site-header__name">Restored Fountain Tabernacle</span>
+      </a>
+      <nav class="site-header__nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="site-header__auth" id="header-auth">
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </span>
+      </nav>
+      <button class="site-header__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="site-header__overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-slideshow">
+      <div class="hero-slide hero-slide--active" style="background-image: url('/assets/hero-leaders.png');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=1920&q=80');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1920&q=80');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1548013146-72459768b32b?w=1920&q=80');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-ornament"></div>
+      <p class="hero-scripture">Genesis 26:22</p>
+      <h1 class="hero-title">Restored Fountain Tabernacle</h1>
+      <p class="hero-subtitle">A place of restoration and the living waters</p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn--primary" data-modal-open="join-family">Join the Family</button>
+        <a href="#event" class="btn btn--secondary">View Upcoming Event</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-indicator-line"></span>
+    </div>
+  </section>
+
+  <!-- Upcoming Event Banner (Prominent) -->
+  <section class="event-banner" id="event">
+    <div class="event-banner__glow"></div>
+    <div class="event-banner__content">
+      <span class="event-banner__label">Upcoming Event</span>
+      <h2 class="event-banner__title">Sunday Worship Experience</h2>
+      <div class="event-banner__details">
+        <p class="event-banner__datetime">Sunday, March 3rd • 9:00 AM</p>
+        <p class="event-banner__location">Restored Fountain Tabernacle, Main Sanctuary</p>
+      </div>
+      <a href="#contact" class="btn btn--gold">Plan Your Visit</a>
+    </div>
+  </section>
+
+  <!-- Welcome Section -->
+  <section class="welcome section" id="home">
+    <div class="container">
+      <div class="welcome__grid">
+        <div class="welcome__text">
+          <h2 class="section-title">Welcome Home</h2>
+          <p class="welcome__message">
+            At Restored Fountain Tabernacle, we believe in encountering the presence of God and experiencing true restoration. 
+            Whether you're seeking healing, purpose, or a deeper connection with the living waters of His grace—you belong here.
+          </p>
+          <p class="welcome__message">
+            Our doors are open to all who hunger for more. Come as you are, and discover a family that will walk with you.
+          </p>
+        </div>
+        <div class="welcome__image">
+          <img src="/assets/welcome-pastor.png" alt="Welcome to Restored Fountain Tabernacle" class="welcome__image-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Times -->
+  <section class="services section section--dark" id="services">
+    <div class="container">
+      <h2 class="section-title section-title--light">Service Times</h2>
+      <div class="services__grid">
+        <article class="service-card">
+          <h3 class="service-card__title">Sunday Service</h3>
+          <p class="service-card__time">9:00 AM – 12:00 PM</p>
+        </article>
+        <article class="service-card">
+          <h3 class="service-card__title">Friday Revival Night</h3>
+          <p class="service-card__time">5:30 PM – 8:00 PM</p>
+        </article>
+        <article class="service-card">
+          <h3 class="service-card__title">Saturday Intercessions</h3>
+          <p class="service-card__time">5:00 AM – 7:00 AM</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="about-preview section" id="about">
+    <div class="container">
+      <div class="about-preview__content">
+        <h2 class="section-title">Our Vision</h2>
+        <p class="about-preview__text">
+          To be a centre of restoration, demonstrating the love of Jesus Christ and His healing grace to our community, 
+          nurturing disciples for the spreading of the Gospel through the power of the Holy Spirit.
+        </p>
+        <a href="about.html" class="btn btn--outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Announcements -->
+  <section class="announcements section" id="announcements">
+    <div class="container">
+      <h2 class="section-title">Latest Announcements</h2>
+      <ul class="announcements__list">
+        <li class="announcement-item">
+          <span class="announcement-item__date">Feb 15</span>
+          <span class="announcement-item__title">New Members Orientation</span>
+        </li>
+        <li class="announcement-item">
+          <span class="announcement-item__date">Feb 12</span>
+          <span class="announcement-item__title">Youth Revival Night</span>
+        </li>
+        <li class="announcement-item">
+          <span class="announcement-item__date">Feb 10</span>
+          <span class="announcement-item__title">Community Outreach Program</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Social Connection -->
+  <section class="social section section--dark" id="contact">
+    <div class="container">
+      <h2 class="section-title section-title--light">Connect With Us</h2>
+      <div class="social__content">
+        <div class="social__icons">
+          <a href="#" class="social__icon" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+          </a>
+          <a href="#" class="social__icon" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social__icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.766 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.766-2.618 6.98-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+        <p class="social__email-label">Or leave your details and we'll get back to you:</p>
+        <form class="contact-form" action="#" method="post" id="contact-form">
+          <div class="contact-form__row">
+            <input type="text" name="name" placeholder="Name" required class="contact-form__input">
+            <input type="email" name="email" placeholder="Email" required class="contact-form__input">
+          </div>
+          <input type="tel" name="phone" placeholder="Phone Number" class="contact-form__input">
+          <textarea name="message" placeholder="Message" rows="4" class="contact-form__input contact-form__textarea"></textarea>
+          <button type="submit" class="btn btn--primary btn--large">Send Message</button>
+        </form>
+        <a href="mailto:restoredfountain.africa@gmail.com" class="social__email">restoredfountain.africa@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__watermark"></div>
+    <div class="container footer__content">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Restored Fountain Tabernacle" class="footer__logo" width="80" height="80">
+        <p class="footer__name">Restored Fountain Tabernacle</p>
+      </div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__contact">
+        <a href="mailto:restoredfountain.africa@gmail.com">restoredfountain.africa@gmail.com</a>
+      </p>
+      <p class="footer__copyright">© 2025 Restored Fountain Tabernacle. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Join the Family Modal -->
+  <div class="modal" id="modal-join-family" aria-hidden="true" role="dialog" aria-labelledby="modal-join-title">
+    <div class="modal__backdrop" data-modal-close="join-family"></div>
+    <div class="modal__content">
+      <button type="button" class="modal__close" data-modal-close="join-family" aria-label="Close">&times;</button>
+      <h2 class="modal__title" id="modal-join-title">Join the Family</h2>
+      <p class="modal__subtitle">Leave your details and we'll get in touch with you.</p>
+      <form class="membership__form" id="join-family-form" action="#" method="post">
+        <div class="membership__form-row">
+          <input type="text" name="name" placeholder="Name" required class="membership__input">
+          <input type="text" name="surname" placeholder="Surname" required class="membership__input">
+        </div>
+        <input type="email" name="email" placeholder="Email" required class="membership__input">
+        <input type="tel" name="contact" placeholder="Contact Number" required class="membership__input">
+        <button type="submit" class="btn btn--primary btn--large">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/auth-header.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

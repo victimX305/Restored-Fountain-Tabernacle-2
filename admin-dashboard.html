@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Restored Fountain Tabernacle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-dashboard">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <img src="assets/logo.png" alt="RFT" class="admin-sidebar__logo">
+        <span class="admin-sidebar__title">Admin</span>
+      </div>
+      <nav class="admin-sidebar__nav">
+        <a href="#dashboard" class="admin-sidebar__link active">Dashboard</a>
+        <a href="#blog" class="admin-sidebar__link">Blog</a>
+        <a href="#users" class="admin-sidebar__link">Users</a>
+        <a href="#membership" class="admin-sidebar__link">Membership</a>
+        <a href="#giving" class="admin-sidebar__link">Giving</a>
+        <a href="#home-content" class="admin-sidebar__link">Home Content</a>
+        <a href="#events" class="admin-sidebar__link">Events</a>
+        <a href="#about" class="admin-sidebar__link">About</a>
+        <a href="#shop" class="admin-sidebar__link">Shop</a>
+      </nav>
+      <div class="admin-sidebar__footer">
+        <a href="index.html" class="admin-sidebar__link">View Site</a>
+        <a href="#" class="admin-sidebar__link" id="admin-logout">Log Out</a>
+      </div>
+    </aside>
+    <main class="admin-main">
+      <header class="admin-main__header">
+        <h1 class="admin-main__title">Dashboard</h1>
+        <p class="admin-main__subtitle">Manage your website content</p>
+      </header>
+      <div class="admin-content">
+        <section class="admin-section" id="dashboard">
+          <h2 class="admin-section__title">Overview</h2>
+          <p class="admin-section__text">Everything you manage here will display on the home page and across the site. Connect Firebase to enable live updates.</p>
+          <div class="admin-cards">
+            <div class="admin-card">
+              <h3 class="admin-card__title">Membership</h3>
+              <p class="admin-card__desc">Add, edit, and manage church members</p>
+            </div>
+            <div class="admin-card">
+              <h3 class="admin-card__title">Giving</h3>
+              <p class="admin-card__desc">Manage giving campaigns and records</p>
+            </div>
+            <div class="admin-card">
+              <h3 class="admin-card__title">Home Content</h3>
+              <p class="admin-card__desc">Hero slides, cards, announcements</p>
+            </div>
+            <div class="admin-card">
+              <h3 class="admin-card__title">Events</h3>
+              <p class="admin-card__desc">Upload and manage upcoming events</p>
+            </div>
+            <div class="admin-card">
+              <h3 class="admin-card__title">About</h3>
+              <p class="admin-card__desc">Vision, mission, core values</p>
+            </div>
+            <div class="admin-card">
+              <h3 class="admin-card__title">Shop</h3>
+              <p class="admin-card__desc">Church merchandise and products</p>
+            </div>
+          </div>
+        </section>
+        <section class="admin-section" id="blog">
+          <h2 class="admin-section__title">Blog</h2>
+          <p class="admin-section__text">Create and manage blog posts. Published posts appear on the blog page.</p>
+          <div id="admin-blog-container"></div>
+        </section>
+        <section class="admin-section" id="users">
+          <h2 class="admin-section__title">Users</h2>
+          <p class="admin-section__text">View all registered users. Promote to admin, demote, or remove users.</p>
+          <div id="admin-users-container"></div>
+        </section>
+        <section class="admin-section" id="membership">
+          <h2 class="admin-section__title">Membership</h2>
+          <p class="admin-section__text">Member management coming soon.</p>
+        </section>
+        <section class="admin-section" id="giving">
+          <h2 class="admin-section__title">Giving</h2>
+          <p class="admin-section__text">Giving management coming soon. Add Firebase to enable.</p>
+        </section>
+        <section class="admin-section" id="home-content">
+          <h2 class="admin-section__title">Home Content</h2>
+          <p class="admin-section__text">Manage hero slideshow, announcement cards, and home page sections.</p>
+        </section>
+        <section class="admin-section" id="events">
+          <h2 class="admin-section__title">Events</h2>
+          <p class="admin-section__text">Upload and manage events that display on the home page.</p>
+        </section>
+        <section class="admin-section" id="about">
+          <h2 class="admin-section__title">About</h2>
+          <p class="admin-section__text">Edit vision, mission, and core values.</p>
+        </section>
+        <section class="admin-section" id="shop">
+          <h2 class="admin-section__title">Shop</h2>
+          <p class="admin-section__text">Manage church merchandise and products.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin-blog.js"></script>
+  <script src="js/admin-users.js"></script>
+  <script>
+    (function () {
+      // Auth guard: wait for auth state (Firebase may need a moment to restore from persistence)
+      function init() {
+        Auth.onAuthStateChanged(async function (user, role) {
+          if (!user) {
+            // Give Firebase a moment to restore session after redirect
+            await new Promise(function (r) { setTimeout(r, 300); });
+            if (!Auth.getCurrentUser()) {
+              window.location.replace('admin.html');
+            }
+            return;
+          }
+          if (role !== 'admin') {
+            Auth.signOut();
+            window.location.replace('admin.html');
+            return;
+          }
+          // Admin confirmed - allow page to function
+        });
+      }
+      init();
+      document.getElementById('admin-logout').addEventListener('click', function (e) {
+        e.preventDefault();
+        Auth.signOut();
+        window.location.href = 'admin.html';
+      });
+      // Init admin sections (containers exist; auth guard may redirect)
+      if (typeof AdminBlog !== 'undefined') AdminBlog.render(document.getElementById('admin-blog-container'));
+      if (typeof AdminUsers !== 'undefined') AdminUsers.render(document.getElementById('admin-users-container'));
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Restored Fountain Tabernacle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner container">
+      <a href="index.html" class="site-header__brand">
+        <img src="assets/logo.png" alt="" class="site-header__logo" width="110" height="110">
+        <span class="site-header__name">Restored Fountain Tabernacle</span>
+      </a>
+      <nav class="site-header__nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html" class="active">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="site-header__auth" id="header-auth">
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </span>
+      </nav>
+      <button class="site-header__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-header__overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="about section section--dark">
+      <div class="container">
+        <div class="about__content">
+          <h1 class="section-title section-title--light">Who We Are</h1>
+          <p class="about__intro">Founded on Genesis 26:22, Restored Fountain Tabernacle is a ministry of restoration committed to the uncompromised Word of God.</p>
+
+          <div class="about__block">
+            <h2 class="about__block-title">Vision</h2>
+            <p class="about__block-text">To be a centre of restoration, demonstrating the love of Jesus Christ and His healing grace to our community, nurturing disciples for the spreading of the Gospel through the power of the Holy Spirit.</p>
+          </div>
+
+          <div class="about__block">
+            <h2 class="about__block-title">Mission</h2>
+            <p class="about__block-text">Restored Fountain Tabernacle (RFT) is a ministry of restoration committed to restoring lives spiritually, physically, and mentally through the preaching and teaching of the uncompromised Word of God. We seek to restore the spiritually lost to God through Jesus Christ, lead believers into holy and righteous living, minister to the spiritually wounded, and restore the people of God back into ministry.</p>
+          </div>
+
+          <div class="about__block">
+            <h2 class="about__block-title">Core Values</h2>
+            <p class="about__block-text">Spiritually dynamic through evangelism and revival, spiritually challenging through mentoring toward righteous living, and spiritually compassionate through counselling and restoration of the wounded.</p>
+          </div>
+
+          <a href="index.html#join" class="btn btn--outline">Join Our Family</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__watermark"></div>
+    <div class="container footer__content">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Restored Fountain Tabernacle" class="footer__logo" width="80" height="80">
+        <p class="footer__name">Restored Fountain Tabernacle</p>
+      </div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__contact">
+        <a href="mailto:restoredfountain.africa@gmail.com">restoredfountain.africa@gmail.com</a>
+      </p>
+      <p class="footer__copyright">© 2025 Restored Fountain Tabernacle. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/auth-header.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

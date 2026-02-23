@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Restored Fountain Tabernacle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner container">
+      <a href="index.html" class="site-header__brand">
+        <img src="assets/logo.png" alt="" class="site-header__logo" width="110" height="110">
+        <span class="site-header__name">Restored Fountain Tabernacle</span>
+      </a>
+      <nav class="site-header__nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="site-header__auth" id="header-auth">
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </span>
+      </nav>
+      <button class="site-header__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-header__overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="shop section">
+      <div class="container">
+        <h1 class="section-title">Church Shop</h1>
+        <p class="shop__intro">Browse our church merchandise and support the ministry.</p>
+        <div class="shop__grid">
+          <div class="shop__placeholder shop__placeholder--large">
+            <span class="shop__placeholder-text">Coming Soon</span>
+            <p class="shop__placeholder-desc">Merchandise and items will be available here. Contact us for inquiries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__watermark"></div>
+    <div class="container footer__content">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Restored Fountain Tabernacle" class="footer__logo" width="80" height="80">
+        <p class="footer__name">Restored Fountain Tabernacle</p>
+      </div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__contact">
+        <a href="mailto:restoredfountain.africa@gmail.com">restoredfountain.africa@gmail.com</a>
+      </p>
+      <p class="footer__copyright">© 2025 Restored Fountain Tabernacle. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/auth-header.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
