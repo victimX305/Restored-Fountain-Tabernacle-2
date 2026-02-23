@@ -460,4 +460,64 @@
   .admin-sidebar__link {
     padding: 0.5rem 1rem;
   }
+
+  .admin-main {
+    padding: 1.25rem 1rem;
+  }
+
+  .admin-blog__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .admin-blog__item-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .admin-blog__modal {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  .admin-blog__modal-content {
+    max-width: 100%;
+    padding: 1.25rem 1rem;
+  }
+
+  .admin-users__table {
+    font-size: 0.875rem;
+  }
+
+  .admin-users__table th,
+  .admin-users__table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .admin-users__actions {
+    flex-direction: column;
+  }
+
+  .admin-users__actions .btn {
+    width: 100%;
+  }
+
+  .admin-login__card {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+    max-width: calc(100% - 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-login__card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .admin-login__logo {
+    width: 100px;
+    height: 100px;
+  }
 }
