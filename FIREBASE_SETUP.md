@@ -77,6 +77,24 @@ The blog page queries posts by `published` and `createdAt`. If you see an error 
 firebase deploy --only firestore:indexes
 ```
 
+## 7. Firebase Storage (for blog images)
+
+Blog posts can have a featured image uploaded from the admin dashboard. Images are stored in Firebase Storage under `blog/{postId}/`.
+
+1. In Firebase Console, go to **Build** → **Storage** and click **Get started** (enable Storage if needed).
+2. Deploy Storage rules from this project:
+   ```bash
+   firebase init storage
+   ```
+   When prompted, use the existing `storage.rules` file. Then:
+   ```bash
+   firebase deploy --only storage
+   ```
+   Or paste the contents of `storage.rules` into the Console: **Storage** → **Rules** tab → Publish.
+
+**Storage rules summary:**  
+- `blog/{postId}/*`: anyone can read (public); only signed-in users can write (admins post from the dashboard).
+
 ## Summary Checklist
 
 - [ ] Email/Password sign-in enabled in Authentication
@@ -84,3 +102,4 @@ firebase deploy --only firestore:indexes
 - [ ] Firestore rules deployed
 - [ ] First admin user created in `users` collection
 - [ ] Firestore index for posts (created automatically if needed)
+- [ ] Storage enabled and `storage.rules` deployed (for blog featured images)

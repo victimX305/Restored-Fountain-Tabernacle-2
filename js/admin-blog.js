@@ -1,5 +1,6 @@
 /**
  * Admin Blog Management - Create, edit, delete posts
+ * Uses Firestore only. Featured image is set via a URL (paste from any image host).
  */
 (function () {
   'use strict';
@@ -49,21 +50,22 @@
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         updatedAt: firebase.firestore.FieldValue.serverTimestamp()
       };
+      if (data.imageUrl) doc.imageUrl = data.imageUrl;
       const ref = await db.collection(POSTS_COLLECTION).add(doc);
       return ref.id;
     },
 
-    /** Update post */
+    /** Update post (only included fields are updated) */
     async updatePost(id, data) {
       const db = getDb();
       if (!db) throw new Error('Database not available');
-      await db.collection(POSTS_COLLECTION).doc(id).update({
-        title: data.title,
-        content: data.content,
-        excerpt: data.excerpt,
-        published: !!data.published,
-        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
+      const update = { updatedAt: firebase.firestore.FieldValue.serverTimestamp() };
+      if (data.title !== undefined) update.title = data.title;
+      if (data.content !== undefined) update.content = data.content;
+      if (data.excerpt !== undefined) update.excerpt = data.excerpt;
+      if (data.published !== undefined) update.published = !!data.published;
+      if (data.imageUrl !== undefined) update.imageUrl = data.imageUrl;
+      await db.collection(POSTS_COLLECTION).doc(id).update(update);
     },
 
     /** Delete post */
@@ -94,6 +96,10 @@
               <input type="text" id="blog-excerpt" class="admin-login__input" placeholder="Short summary">
               <label class="admin-login__label">Content</label>
               <textarea id="blog-content" class="admin-login__input admin-blog__textarea" rows="8" required placeholder="Post content"></textarea>
+              <label class="admin-login__label">Featured image URL (optional)</label>
+              <input type="url" id="blog-image-url" class="admin-login__input" placeholder="https://example.com/image.jpg">
+              <p class="admin-blog__hint">Paste a direct link to an image (e.g. from Imgur, Cloudinary, or your site).</p>
+              <div id="blog-current-image" class="admin-blog__current-image" style="display:none;"></div>
               <label class="admin-blog__checkbox-wrap">
                 <input type="checkbox" id="blog-published" checked> Published
               </label>
@@ -111,15 +117,26 @@
       const form = document.getElementById('blog-form');
       const addBtn = document.getElementById('blog-add-btn');
 
+      const blogImageUrlInput = document.getElementById('blog-image-url');
+      const blogCurrentImage = document.getElementById('blog-current-image');
+
       function openModal(editId) {
         document.getElementById('blog-modal-title').textContent = editId ? 'Edit Post' : 'New Post';
         document.getElementById('blog-id').value = editId || '';
+        blogImageUrlInput.value = '';
+        blogCurrentImage.style.display = 'none';
+        blogCurrentImage.innerHTML = '';
         if (editId) {
           AdminBlog.getPost(editId).then(p => {
             document.getElementById('blog-title').value = p.title || '';
             document.getElementById('blog-excerpt').value = p.excerpt || '';
             document.getElementById('blog-content').value = p.content || '';
             document.getElementById('blog-published').checked = !!p.published;
+            if (p.imageUrl) {
+              blogImageUrlInput.value = p.imageUrl;
+              blogCurrentImage.innerHTML = '<p class="admin-blog__current-label">Current image:</p><img src="' + escapeHtml(p.imageUrl) + '" alt="" class="admin-blog__current-img">';
+              blogCurrentImage.style.display = 'block';
+            }
           });
         } else {
           document.getElementById('blog-title').value = '';
@@ -168,15 +185,20 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const id = document.getElementById('blog-id').value;
+        const imageUrl = blogImageUrlInput.value.trim();
         const data = {
           title: document.getElementById('blog-title').value.trim(),
           excerpt: document.getElementById('blog-excerpt').value.trim(),
           content: document.getElementById('blog-content').value.trim(),
           published: document.getElementById('blog-published').checked
         };
+        data.imageUrl = imageUrl || null;
         try {
-          if (id) await AdminBlog.updatePost(id, data);
-          else await AdminBlog.createPost(data);
+          if (id) {
+            await AdminBlog.updatePost(id, data);
+          } else {
+            await AdminBlog.createPost(data);
+          }
           closeModal();
           refreshList();
         } catch (err) {

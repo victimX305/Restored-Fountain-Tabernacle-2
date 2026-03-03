@@ -81,11 +81,17 @@
         </section>
         <section class="admin-section" id="membership">
           <h2 class="admin-section__title">Membership</h2>
-          <p class="admin-section__text">Member management coming soon.</p>
+          <p class="admin-section__text">View and manage membership applications submitted from the website.</p>
+          <div id="admin-membership-container"></div>
         </section>
         <section class="admin-section" id="giving">
           <h2 class="admin-section__title">Giving</h2>
           <p class="admin-section__text">Giving management coming soon. Add Firebase to enable.</p>
+        </section>
+        <section class="admin-section" id="contact-admin">
+          <h2 class="admin-section__title">Connect With Us</h2>
+          <p class="admin-section__text">Messages sent from the Connect With Us forms.</p>
+          <div id="admin-contact-container"></div>
         </section>
         <section class="admin-section" id="home-content">
           <h2 class="admin-section__title">Home Content</h2>
@@ -113,6 +119,8 @@
   <script src="js/auth.js"></script>
   <script src="js/admin-blog.js"></script>
   <script src="js/admin-users.js"></script>
+  <script src="js/admin-membership.js"></script>
+  <script src="js/admin-contact.js"></script>
   <script>
     (function () {
       // Auth guard: wait for auth state (Firebase may need a moment to restore from persistence)
@@ -143,6 +151,8 @@
       // Init admin sections (containers exist; auth guard may redirect)
       if (typeof AdminBlog !== 'undefined') AdminBlog.render(document.getElementById('admin-blog-container'));
       if (typeof AdminUsers !== 'undefined') AdminUsers.render(document.getElementById('admin-users-container'));
+      if (typeof AdminMembership !== 'undefined') AdminMembership.render(document.getElementById('admin-membership-container'));
+      if (typeof AdminContact !== 'undefined') AdminContact.render(document.getElementById('admin-contact-container'));
     })();
   </script>
   <script src="js/main.js"></script>

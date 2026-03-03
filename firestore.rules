@@ -28,5 +28,17 @@ service cloud.firestore {
       allow read: if resource.data.published == true || isAdmin();
       allow create, update, delete: if isAdmin();
     }
+
+    // Membership applications: public can submit, only admins can read/manage
+    match /members/{memberId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Contact / Connect With Us messages: public can submit, only admins can read/manage
+    match /contactMessages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
   }
 }

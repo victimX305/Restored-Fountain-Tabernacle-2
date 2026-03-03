@@ -3,10 +3,451 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0;url=index.html#join">
-  <title>Membership | Restored Fountain Tabernacle</title>
+  <title>Become a Member | Restored Fountain Tabernacle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <p>Redirecting to <a href="index.html#join">Join the Family on Home</a>…</p>
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner container">
+      <a href="index.html" class="site-header__brand">
+        <img src="assets/logo.png" alt="" class="site-header__logo" width="110" height="110">
+        <span class="site-header__name">Restored Fountain Tabernacle</span>
+      </a>
+      <nav class="site-header__nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <span class="site-header__auth" id="header-auth">
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </span>
+      </nav>
+      <button class="site-header__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-header__overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="section section--dark">
+      <div class="container">
+        <div class="membership__content">
+          <h1 class="section-title section-title--light">Become a Member</h1>
+          <p class="membership__text">
+            We would be honoured to walk with you on your journey of faith. Please fill in the form below as completely and honestly as you can.
+          </p>
+        </div>
+
+        <form id="membership-form" class="membership__form" novalidate>
+          <!-- Personal Details -->
+          <section class="form-section">
+            <h2 class="form-section__title">Personal Details</h2>
+
+            <div class="membership__form-row">
+              <div class="form-field">
+                <label for="name" class="form-field__label">Name</label>
+                <input id="name" name="name" type="text" class="membership__input" autocomplete="given-name">
+                <p class="form-field__error" data-error-for="name"></p>
+              </div>
+              <div class="form-field">
+                <label for="surname" class="form-field__label">Surname</label>
+                <input id="surname" name="surname" type="text" class="membership__input" autocomplete="family-name">
+                <p class="form-field__error" data-error-for="surname"></p>
+              </div>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field">
+                <label for="cellNumber" class="form-field__label">Cell number</label>
+                <input id="cellNumber" name="cellNumber" type="tel" class="membership__input">
+                <p class="form-field__error" data-error-for="cellNumber"></p>
+              </div>
+              <div class="form-field">
+                <label for="age" class="form-field__label">Age</label>
+                <input id="age" name="age" type="number" min="0" class="membership__input">
+                <p class="form-field__error" data-error-for="age"></p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="homeAddress" class="form-field__label">Home address</label>
+              <textarea id="homeAddress" name="homeAddress" rows="3" class="membership__input"></textarea>
+              <p class="form-field__error" data-error-for="homeAddress"></p>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field">
+                <label for="maritalStatus" class="form-field__label">Marital status</label>
+                <select id="maritalStatus" name="maritalStatus" class="membership__input">
+                  <option value="">Select status</option>
+                  <option value="Married">Married</option>
+                  <option value="Divorced">Divorced</option>
+                  <option value="Single Parent">Single Parent</option>
+                  <option value="Widow/Widower">Widow / Widower</option>
+                  <option value="Single Adult">Single Adult</option>
+                  <option value="Teenager">Teenager</option>
+                </select>
+                <p class="form-field__error" data-error-for="maritalStatus"></p>
+              </div>
+              <div class="form-field">
+                <label for="idNumber" class="form-field__label">ID number (if South African citizen)</label>
+                <input id="idNumber" name="idNumber" type="text" class="membership__input">
+                <p class="form-field__error" data-error-for="idNumber"></p>
+              </div>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Baptised in water?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="baptized" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="baptized" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="baptized"></p>
+              </div>
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">South African citizen?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="southAfricanCitizen" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="southAfricanCitizen" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="southAfricanCitizen"></p>
+              </div>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Employed?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="employed" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="employed" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="employed"></p>
+              </div>
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Scholar / student?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="scholar" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="scholar" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="scholar"></p>
+              </div>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Do you have children?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="hasChildren" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="hasChildren" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="hasChildren"></p>
+              </div>
+              <div class="form-field">
+                <label for="numberOfChildren" class="form-field__label">Number of children (if applicable)</label>
+                <input id="numberOfChildren" name="numberOfChildren" type="number" min="0" max="3" class="membership__input">
+                <p class="form-field__error" data-error-for="numberOfChildren"></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Spouse Details -->
+          <section class="form-section form-section--conditional" id="spouse-section" aria-hidden="true">
+            <h2 class="form-section__title">Spouse Details</h2>
+
+            <div class="membership__form-row">
+              <div class="form-field">
+                <label for="spouseName" class="form-field__label">Spouse name</label>
+                <input id="spouseName" name="spouseName" type="text" class="membership__input">
+                <p class="form-field__error" data-error-for="spouseName"></p>
+              </div>
+              <div class="form-field">
+                <label for="spouseSurname" class="form-field__label">Spouse surname</label>
+                <input id="spouseSurname" name="spouseSurname" type="text" class="membership__input">
+                <p class="form-field__error" data-error-for="spouseSurname"></p>
+              </div>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field">
+                <label for="spouseCellNumber" class="form-field__label">Spouse cell number</label>
+                <input id="spouseCellNumber" name="spouseCellNumber" type="tel" class="membership__input">
+                <p class="form-field__error" data-error-for="spouseCellNumber"></p>
+              </div>
+              <div class="form-field">
+                <label for="spouseIdNumber" class="form-field__label">Spouse ID number</label>
+                <input id="spouseIdNumber" name="spouseIdNumber" type="text" class="membership__input">
+                <p class="form-field__error" data-error-for="spouseIdNumber"></p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="spouseHomeAddress" class="form-field__label">Spouse home address</label>
+              <textarea id="spouseHomeAddress" name="spouseHomeAddress" rows="3" class="membership__input"></textarea>
+              <p class="form-field__error" data-error-for="spouseHomeAddress"></p>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Is your spouse born again?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="spouseBornAgain" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="spouseBornAgain" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="spouseBornAgain"></p>
+              </div>
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Is your spouse baptised?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="spouseBaptized" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="spouseBaptized" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="spouseBaptized"></p>
+              </div>
+            </div>
+
+            <div class="form-field form-field--inline">
+              <span class="form-field__label">Is your spouse employed?</span>
+              <div class="form-field__options">
+                <label class="form-field__option">
+                  <input type="radio" name="spouseEmployed" value="yes"> Yes
+                </label>
+                <label class="form-field__option">
+                  <input type="radio" name="spouseEmployed" value="no"> No
+                </label>
+              </div>
+              <p class="form-field__error" data-error-for="spouseEmployed"></p>
+            </div>
+          </section>
+
+          <!-- Children Details -->
+          <section class="form-section form-section--conditional" id="children-section" aria-hidden="true">
+            <h2 class="form-section__title">Children Details</h2>
+
+            <p class="form-section__hint">You can list up to 3 children.</p>
+
+            <div class="children-grid">
+              <!-- Child 1 -->
+              <div class="children-card" data-child-index="1">
+                <h3 class="children-card__title">Child 1</h3>
+                <div class="membership__form-row">
+                  <div class="form-field">
+                    <label for="child1Name" class="form-field__label">Name</label>
+                    <input id="child1Name" name="child1Name" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child1Name"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="child1Surname" class="form-field__label">Surname</label>
+                    <input id="child1Surname" name="child1Surname" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child1Surname"></p>
+                  </div>
+                </div>
+                <div class="membership__form-row">
+                  <div class="form-field">
+                    <label for="child1IdNumber" class="form-field__label">ID number</label>
+                    <input id="child1IdNumber" name="child1IdNumber" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child1IdNumber"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="child1Age" class="form-field__label">Age</label>
+                    <input id="child1Age" name="child1Age" type="number" min="0" class="membership__input">
+                    <p class="form-field__error" data-error-for="child1Age"></p>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="child1CellNumber" class="form-field__label">Cell number (optional)</label>
+                  <input id="child1CellNumber" name="child1CellNumber" type="tel" class="membership__input">
+                  <p class="form-field__error" data-error-for="child1CellNumber"></p>
+                </div>
+              </div>
+
+              <!-- Child 2 -->
+              <div class="children-card" data-child-index="2">
+                <h3 class="children-card__title">Child 2</h3>
+                <div class="membership__form-row">
+                  <div class="form-field">
+                    <label for="child2Name" class="form-field__label">Name</label>
+                    <input id="child2Name" name="child2Name" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child2Name"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="child2Surname" class="form-field__label">Surname</label>
+                    <input id="child2Surname" name="child2Surname" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child2Surname"></p>
+                  </div>
+                </div>
+                <div class="membership__form-row">
+                  <div class="form-field">
+                    <label for="child2IdNumber" class="form-field__label">ID number</label>
+                    <input id="child2IdNumber" name="child2IdNumber" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child2IdNumber"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="child2Age" class="form-field__label">Age</label>
+                    <input id="child2Age" name="child2Age" type="number" min="0" class="membership__input">
+                    <p class="form-field__error" data-error-for="child2Age"></p>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="child2CellNumber" class="form-field__label">Cell number (optional)</label>
+                  <input id="child2CellNumber" name="child2CellNumber" type="tel" class="membership__input">
+                  <p class="form-field__error" data-error-for="child2CellNumber"></p>
+                </div>
+              </div>
+
+              <!-- Child 3 -->
+              <div class="children-card" data-child-index="3">
+                <h3 class="children-card__title">Child 3</h3>
+                <div class="membership__form-row">
+                  <div class="form-field">
+                    <label for="child3Name" class="form-field__label">Name</label>
+                    <input id="child3Name" name="child3Name" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child3Name"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="child3Surname" class="form-field__label">Surname</label>
+                    <input id="child3Surname" name="child3Surname" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child3Surname"></p>
+                  </div>
+                </div>
+                <div class="membership__form-row">
+                  <div class="form-field">
+                    <label for="child3IdNumber" class="form-field__label">ID number</label>
+                    <input id="child3IdNumber" name="child3IdNumber" type="text" class="membership__input">
+                    <p class="form-field__error" data-error-for="child3IdNumber"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="child3Age" class="form-field__label">Age</label>
+                    <input id="child3Age" name="child3Age" type="number" min="0" class="membership__input">
+                    <p class="form-field__error" data-error-for="child3Age"></p>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="child3CellNumber" class="form-field__label">Cell number (optional)</label>
+                  <input id="child3CellNumber" name="child3CellNumber" type="tel" class="membership__input">
+                  <p class="form-field__error" data-error-for="child3CellNumber"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="membership__form-row">
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Have your children been dedicated to God?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="childrenDedicatedToGod" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="childrenDedicatedToGod" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="childrenDedicatedToGod"></p>
+              </div>
+              <div class="form-field form-field--inline">
+                <span class="form-field__label">Have your children accepted Jesus?</span>
+                <div class="form-field__options">
+                  <label class="form-field__option">
+                    <input type="radio" name="childrenAcceptedJesus" value="yes"> Yes
+                  </label>
+                  <label class="form-field__option">
+                    <input type="radio" name="childrenAcceptedJesus" value="no"> No
+                  </label>
+                </div>
+                <p class="form-field__error" data-error-for="childrenAcceptedJesus"></p>
+              </div>
+            </div>
+
+            <div class="form-field form-field--inline">
+              <span class="form-field__label">Have your children been baptised?</span>
+              <div class="form-field__options">
+                <label class="form-field__option">
+                  <input type="radio" name="childrenBaptized" value="yes"> Yes
+                </label>
+                <label class="form-field__option">
+                  <input type="radio" name="childrenBaptized" value="no"> No
+                </label>
+              </div>
+              <p class="form-field__error" data-error-for="childrenBaptized"></p>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary btn--large">Submit application</button>
+            <p class="form-global-message" id="membership-form-message" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__watermark"></div>
+    <div class="container footer__content">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Restored Fountain Tabernacle" class="footer__logo" width="80" height="80">
+        <p class="footer__name">Restored Fountain Tabernacle</p>
+      </div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__contact">
+        <a href="mailto:restoredfountain.africa@gmail.com">restoredfountain.africa@gmail.com</a>
+      </p>
+      <p class="footer__copyright">© 2025 Restored Fountain Tabernacle. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/auth-header.js"></script>
+  <script src="js/membership.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
+

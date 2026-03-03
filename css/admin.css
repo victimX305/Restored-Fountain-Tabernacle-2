@@ -317,6 +317,98 @@
   border-radius: 4px;
 }
 
+/* Admin Membership modal (re-use blog modal styling) */
+.admin-membership__modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.admin-membership__modal.is-open {
+  display: flex;
+}
+
+.admin-membership__modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.admin-membership__modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-navy);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+.admin-membership__modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--color-gray-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.admin-membership__modal-close:hover {
+  color: var(--color-white);
+}
+
+.admin-membership__modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  margin: 0 0 1.5rem;
+}
+
+.admin-membership__modal-body {
+  font-size: 0.95rem;
+  color: var(--color-gray-soft);
+}
+
+.admin-membership__section {
+  margin-bottom: 1.5rem;
+}
+
+.admin-membership__section h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-gold);
+  margin: 0 0 0.75rem;
+}
+
+.admin-membership__field {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.admin-membership__field-label {
+  font-weight: 500;
+  color: var(--color-gray-soft);
+}
+
+.admin-membership__field-value {
+  color: var(--color-white);
+}
+
+.admin-membership__child {
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .admin-blog__modal-close {
   position: absolute;
   top: 1rem;
@@ -342,6 +434,30 @@
 .admin-blog__textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+.admin-blog__hint {
+  font-size: 0.8125rem;
+  color: var(--color-gray-muted);
+  margin: 0.25rem 0 0.75rem;
+}
+
+.admin-blog__current-image {
+  margin: 0.75rem 0;
+}
+
+.admin-blog__current-label {
+  font-size: 0.8125rem;
+  color: var(--color-gray-muted);
+  margin-bottom: 0.5rem;
+}
+
+.admin-blog__current-img {
+  max-width: 200px;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
 }
 
 .admin-blog__checkbox-wrap {

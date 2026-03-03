@@ -30,7 +30,7 @@
 
   const animatedElements = document.querySelectorAll(
     '.event-banner__content, .welcome__grid, .services__grid, .about-preview__content, ' +
-    '.announcements__list, .social__content, .service-card, .section-title'
+    '.home-blog__list, .social__content, .service-card, .section-title'
   );
 
   const observerOptions = {
@@ -196,11 +196,47 @@
     });
   }
 
-  // Contact form submit
+  // Contact / Connect With Us form submit (home + contact page)
   const contactForm = document.getElementById('contact-form');
   if (contactForm && typeof Swal !== 'undefined') {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      const db = firebase && firebase.firestore ? firebase.firestore() : null;
+      if (!db) {
+        Swal.fire({
+          title: 'Unable to send',
+          text: 'We could not connect to the server. Please try again later.',
+          icon: 'error',
+          confirmButtonColor: '#c9a227'
+        });
+        return;
+      }
+
+      const formData = new FormData(contactForm);
+      const doc = {
+        name: (formData.get('name') || '').toString().trim(),
+        email: (formData.get('email') || '').toString().trim(),
+        phone: (formData.get('phone') || '').toString().trim(),
+        message: (formData.get('message') || '').toString().trim(),
+        page: window.location.pathname || 'index',
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        status: 'new'
+      };
+
+      try {
+        await db.collection('contactMessages').add(doc);
+      } catch (err) {
+        console.error(err);
+        Swal.fire({
+          title: 'Unable to send',
+          text: 'We could not save your message. Please try again.',
+          icon: 'error',
+          confirmButtonColor: '#c9a227'
+        });
+        return;
+      }
+
       Swal.fire({
         title: 'Message Sent!',
         text: "Thank you! We'll get back to you soon.",

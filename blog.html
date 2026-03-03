@@ -41,11 +41,22 @@
       <div class="container">
         <h1 class="section-title section-title--light">Blog</h1>
         <p class="blog__intro">Updates, reflections, and news from Restored Fountain Tabernacle.</p>
-        <div class="blog__list" id="blog-posts"></div>
+        <div class="home-blog__list" id="blog-posts"></div>
         <p class="blog__empty" id="blog-empty" style="display:none;">No posts yet. Check back soon.</p>
       </div>
     </section>
   </main>
+
+  <!-- Blog post view modal -->
+  <div class="modal blog-post-modal" id="blog-post-modal" aria-hidden="true" role="dialog" aria-labelledby="blog-post-modal-title">
+    <div class="blog-post-modal__backdrop" id="blog-post-modal-close"></div>
+    <div class="blog-post-modal__content">
+      <button type="button" class="blog-post-modal__close" id="blog-post-modal-close-btn" aria-label="Close">&times;</button>
+      <div class="blog-post-modal__body" id="blog-post-modal-body">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer__watermark"></div>

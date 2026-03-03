@@ -92,7 +92,9 @@
         }
         const p = doc.data();
         const date = p.createdAt && p.createdAt.toDate ? p.createdAt.toDate().toLocaleDateString() : '';
+        const imgHtml = p.imageUrl ? '<div class="blog-card__img-container"><img src="' + escapeHtml(p.imageUrl) + '" alt="" class="blog-post__img" loading="lazy"></div>' : '';
         container.innerHTML = `
+          ${imgHtml}
           <h1 class="blog-post__title">${escapeHtml(p.title || 'Untitled')}</h1>
           <p class="blog-post__meta">${escapeHtml(p.authorName || '')} • ${date}</p>
           <div class="blog-post__body">${nl2br(escapeHtml(p.content || ''))}</div>
